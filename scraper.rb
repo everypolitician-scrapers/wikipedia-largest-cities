@@ -26,7 +26,7 @@ class CityRow < Scraped::HTML
   end
 
   field :population do
-    Integer(tds[2].text.sub(/^\s*([0-9,]+).*/m, '\1').tr(',', ''))
+    population_td.xpath('./text()').text.tr(',', '').to_i
   end
 
   private
