@@ -52,7 +52,7 @@ class ListPage < Scraped::HTML
   decorator WikidataIdsDecorator::Links
 
   field :members do
-    noko.xpath('//table[contains(@class, "wikitable")]/tr').drop(2).map do |row|
+    noko.xpath('//table[contains(@class, "wikitable")]/tr[td]').map do |row|
       fragment row => CityRow
     end
   end
