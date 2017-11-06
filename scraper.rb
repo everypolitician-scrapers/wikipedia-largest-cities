@@ -36,7 +36,7 @@ class CityRow < Scraped::HTML
   end
 
   def city_link
-    @city_link ||= noko.css('th').css('a')
+    noko.css('th a')
   end
 
   def tds
